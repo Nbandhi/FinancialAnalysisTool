@@ -1,0 +1,28 @@
+<!-- Updated result.html to show best options -->
+{% extends "base.html" %}
+{% block container %}
+<section class="container mt-5 text-center">
+  <h2>Simulation Results</h2>
+
+  {% if min_required_db %}
+  <p><strong>Minimum Required Death Benefit (IRS Compliant):</strong> {{ min_required_db }}</p>
+  {% endif %}
+
+  {% if actual_db %}
+  <p><strong>Actual Death Benefit Used:</strong> {{ actual_db }}</p>
+  {% endif %}
+
+  <div>
+    {{ chart | safe }}
+  </div>
+
+  <div class="table-responsive mt-4">
+    {{ table | safe }}
+  </div>
+
+  <div class="mt-4">
+    <a href="{{ url_for('download_excel') }}" class="btn btn-secondary">Download Excel File</a>
+    <a href="{{ url_for('iul_home') }}" class="btn btn-primary">Start Over</a>
+  </div>
+</section>
+{% endblock %}

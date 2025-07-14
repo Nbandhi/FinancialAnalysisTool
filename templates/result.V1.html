@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block container %}
+<section class="container text-center" style="min-height: 203px;">
+  <h1 style="letter-spacing: 1px; font-family: 'Open Sans', sans-serif;"><strong>IUL Simulation Results</strong></h1><br><br>
+  <ul>
+    <li>Minimum Death Benefit to Avoid GPT/MEC: ${{ min_required_db | round(2) }}</li>
+    <li>Actual Death Benefit Used: ${{ actual_db | round(2) }}</li>
+    {% if actual_db < min_required_db %}
+      <li style="color:red;">Warning: Policy may fail IRS tests (GPT or MEC).</li>
+    {% else %}
+      <li style="color:green;">✔️ Policy meets IRS minimum guidelines.</li>
+    {% endif %}
+  </ul>
+  <div style="overflow-x:auto;">{{ table|safe }}</div>
+  <br>
+  {{ chart|safe }}
+
+  <!-- <br><a class="btn btn-primary" href="/download_excel">Download Excel</a> | 
+  <a class="btn btn-primary" href="/">Run Another Simulation</a> -->
+
+{% if optimization_ran %}
+  <br><h3>⚠️ Policy failed IRS test. Top alternative scenarios:</h3>
+  <pre>{{ best_options }}</pre>
+  <table class="table table-bordered text-left">
+    <thead><tr>
+      <th>Premium</th><th>Years</th><th>Death Benefit</th>
+      <th>Final Cash Value</th><th>Final DB</th>
+    </tr></thead>
+    <tbody>
+    {% for row in best_options %}
+      <tr>
+        <td>${{ row['Premium'] }}</td>
+        <td>{{ row['Years'] }}</td>
+        <td>${{ row['Death Benefit'] }}</td>
+        <td>${{ row['Final Cash Value'] }}</td>
+        <td>${{ row['Final DB'] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <a class="btn btn-success" href="/download_excel">Download Initial</a>
+  <a class="btn btn-primary" href="/static/optimization_results.xlsx">Download Optimized</a>
+ 
+{% endif %}
+ <a class="btn btn-primary" href="/">Run Another Simulation</a>
+</section>
+
+
+{% endblock %}

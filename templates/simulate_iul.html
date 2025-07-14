@@ -1,0 +1,135 @@
+
+      <table class="table table-bordered text-left" style="margin: 0 auto; width: 70%;">
+        <tbody>
+          <tr>
+            <td><strong>Test Type</strong> <sup onclick="showTip(this)">(?)</sup>
+              <div class="tooltip-box">IRS compliance test used: GPT or CVAT</div>
+            </td>
+            <td>
+              <select name="test_type">
+                <option value="GPT">GPT</option>
+                <option value="CVAT">CVAT</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Start Age</strong> <sup onclick="showTip(this)">(?)</sup>
+              <div class="tooltip-box">Your current age at start of policy</div>
+            </td>
+            <td><input type="number" name="start_age" value="63"></td>
+          </tr>
+          <tr>
+            <td><strong>End Age</strong> <sup onclick="showTip(this)">(?)</sup>
+              <div class="tooltip-box">The age at which the simulation ends</div>
+            </td>
+            <td><input type="number" name="end_age" value="85"></td>
+          </tr>
+          <tr>
+            <td><strong>Annual Premium</strong> <sup onclick="showTip(this)">(?)</sup>
+              <div class="tooltip-box">Amount paid into the policy each year</div>
+            </td>
+            <td><input type="number" name="annual_premium" value="100000"></td>
+          </tr>
+          <tr><td><strong>Premium Payment Years</strong> <sup onclick="showTip(this):">(?)</sup>
+            <div class="tooltip-box">Number of years you plan to pay premiums</div>
+            </td>
+            <td><input type="number" name="premium_payment_years" value="4"></td>
+          </tr>
+          <tr>
+            <td><strong>Death Benefit</strong> <sup onclick="showTip(this)">(?)</sup>
+              <div class="tooltip-box">Face value or payout of the policy on death"</div>
+            </td>
+            <td><input type="number" name="death_benefit" value="1000000"></td>
+          </tr>
+          <tr><td><strong>Average Return (%)</strong> <sup onclick="showTip(this)">(?)</sup>
+            <div class="tooltip-box">Expected average annual index return</div>
+            </td>
+            <td><input type="number" name="average_return" value="6"></td>
+          </tr>
+          <tr><td><strong>Interest Cap (%)</strong> <sup onclick="showTip(this)">(?)</sup>
+            <div class="tooltip-box">Maximum interest credited in any one year</div>
+            </td>
+            <td><input type="number" name="interest_cap" value="10"></td>
+          </tr>
+          <tr><td><strong>Interest Floor (%)</strong> <sup onclick="showTip(this)">(?)</sup>
+            <div class="tooltip-box">Minimum guaranteed return</div>
+            </td>
+            <td><input type="number" name="interest_floor" value="0"></td></tr>
+          <tr><td><strong>Initial Cost Basis</strong> <sup onclick="showTip(this)" >(?)</sup>
+            <div class="tooltip-box">Your initial investment basis</div>
+            </td>
+          <td><input type="number" name="initial_basis" value="0"></td></tr>
+
+          <tr>
+            <td>
+              <label><input type="checkbox" name="use_1035_exchange" id="use1035" onclick="toggle1035Inputs()"> Use 1035 Exchange</label>
+              <sup onclick="showTip(this)">(?)</sup>
+              <div class="tooltip-box">Use a 1035 exchange to transfer value from an old policy</div>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 1035 Section -->
+      <div id="1035inputs" style="display:none; width: 70%; margin: 0 auto;">
+        <table class="table table-sm text-left">
+          <tbody>
+            <tr>
+              <td><strong>Prior Cash Value</strong> <sup onclick="showTip(this)">(?)</sup>
+                <div class="tooltip-box">Cash value from previous policy (if 1035 exchange used)</div>
+              </td>
+              <td><input type="number" name="prior_cash_value" value="0"></td>
+            </tr>
+            <tr>
+              <td><strong>Prior Cost Basis</strong> <sup onclick="showTip(this)">(?)</sup>
+                <div class="tooltip-box">Cost basis from previous policy (if 1035 exchange used)</div>
+              </td>
+              <td><input type="number" name="prior_basis" value="0"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <table class="table table-bordered text-left" style="margin: 0 auto; width: 70%;">
+        <tbody>
+          <tr>
+            <td><strong><input type="checkbox" name="allow_mec" checked> Allow MEC</strong>
+              <sup onclick="showTip(this)">(?)</sup>
+              <div class="tooltip-box">Policy may become MEC if overfunded</div>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Withdrawal Age</strong> <sup onclick="showTip(this)">(?)</sup>
+              <div class="tooltip-box">Age when withdrawals begin</div>
+            </td>
+            <td><input type="number" name="withdrawal_age" value="67"></td>
+          </tr>
+          <tr><td><strong>Withdrawal Amount</strong> <sup onclick="showTip(this)">(?)</sup>
+            <div class="tooltip-box">Annual withdrawal amount</div>
+            </td>
+            <td><input type="number" name="withdrawal_amount" value="10000"></td>
+          </tr>
+          <tr><td><strong><input type="checkbox" name="auto_adjust_db"> Auto-adjust Death Benefit</strong>
+              <sup onclick="showTip(this)">(?)</sup>
+              <div class="tooltip-box">Adjust DB to stay compliant</div>)</td>
+            <td></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

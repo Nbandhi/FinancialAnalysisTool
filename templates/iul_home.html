@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block container %}
+<section class="container text-center" style="min-height: 203px;">
+  <h1><strong>IUL Policy Simulation</strong></h1><br><br>
+
+  <!-- Choose Mode -->
+  <table class="table table-bordered text-left" style="margin: 0 auto; width: 70%;">
+    <tr>
+      <td><strong>Would the client like to make a lump sum investment?</strong></td>
+      <td>
+        <input type="radio" name="entry_mode" value="optimize" onclick="toggleMode('optimize')"> Yes, run optimization<br>
+        <input type="radio" name="entry_mode" value="simulate" onclick="toggleMode('simulate')"> No, enter premiums manually
+      </td>
+    </tr>
+  </table>
+
+  <!-- Simulation Form -->
+  <div id="simulateSection" style="display: none;">
+    <form method="POST" action="{{ url_for('simulate') }}">
+      {% include 'simulate_iul.html' %}
+      <div class="text-center mt-4">
+        <input type="submit" value="Simulate" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
+
+  <!-- Optimization Form -->
+  <div id="optimizeSection" style="display: none;">
+    <form method="POST" action="{{ url_for('optimize') }}">
+      {% include 'optimize_iul.html' %}
+      <div class="text-center mt-4">
+        <input type="submit" value="Optimize" class="btn btn-success">
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+function toggleMode(mode) {
+  document.getElementById("simulateSection").style.display = (mode === "simulate") ? "block" : "none";
+  document.getElementById("optimizeSection").style.display = (mode === "optimize") ? "block" : "none";
+}
+  
+function toggle1035Inputs() {
+  const checkbox = document.getElementById("use1035");
+  const inputsDiv = document.getElementById("1035inputs");
+  inputsDiv.style.display = checkbox.checked ? "block" : "none";
+}
+  
+function showTip(el) {
+  const tipBox = el.nextElementSibling;
+  if (tipBox && tipBox.classList.contains('tooltip-box')) {
+      tipBox.style.display = tipBox.style.display === 'block' ? 'none' : 'block';
+  }
+}
+</script>
+  
+    <style>
+          sup {
+            cursor: pointer;
+            color: blue;
+            font-weight: bold;
+          }
+
+          .tooltip-box {
+            display: none; /* <-- Ensures hidden by default */
+            background: #f8f9fa;
+            border: 1px solid #aaa;
+            padding: 6px;
+            margin-top: 4px;
+            font-size: 0.9em;
+            border-radius: 4px;
+            width: 95%;
+          }
+</style>
+{% endblock %}

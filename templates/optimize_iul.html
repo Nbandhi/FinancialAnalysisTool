@@ -1,0 +1,82 @@
+<table class="table table-bordered text-left" style="margin: 0 auto; width: 70%;">
+  <tr>
+    <td><strong>Test Type</strong></td>
+    <td>
+      <select name="test_type">
+        <option value="GPT">GPT</option>
+        <option value="CVAT">CVAT</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Total Investment Amount</strong></td>
+    <td><input type="number" name="total_investment" value="100000"></td>
+  </tr>
+  <tr>
+    <td><strong>Initial Cost Basis</strong></td>
+    <td><input type="number" name="initial_basis" value="0"></td>
+  </tr>
+  <tr>
+   <td><strong>Start Age</strong> <sup onclick="showTip(this)">(?)</sup>
+      <div class="tooltip-box">Your current age at start of policy</div>
+    </td>
+    <td><input type="number" name="start_age" value="63"></td>
+  </tr>
+  <tr>
+    <td><strong>End Age</strong> <sup onclick="showTip(this)">(?)</sup>
+      <div class="tooltip-box">The age at which the simulation ends</div>
+    </td>
+    <td><input type="number" name="end_age" value="85"></td>
+  </tr>
+  <tr>
+    <td><strong>Premium Payment Years</strong> <sup onclick="showTip(this):">(?)</sup>
+      <div class="tooltip-box">Number of years you plan to pay premiums</div>
+    </td>
+    <td><input type="number" name="premium_payment_years" value="4"></td>
+  </tr>
+ <tr>
+    <td><strong>Average Return (%)</strong> <sup onclick="showTip(this)">(?)</sup>
+      <div class="tooltip-box">Expected average annual index return</div>
+    </td>
+    <td><input type="number" name="average_return" value="6"></td>
+  </tr>
+  <tr>
+    <td><strong>Interest Cap (%)</strong> <sup onclick="showTip(this)">(?)</sup>
+      <div class="tooltip-box">Maximum interest credited in any one year</div>
+    </td>
+    <td><input type="number" name="interest_cap" value="10"></td>
+  </tr>
+  <tr>
+    <td><strong>Interest Floor (%)</strong> <sup onclick="showTip(this)">(?)</sup>
+      <div class="tooltip-box">Minimum guaranteed return</div>
+    </td>
+    <td><input type="number" name="interest_floor" value="0"></td>
+  </tr>
+  <tr>
+    <td><strong>Withdrawal Age</strong> <sup onclick="showTip(this)">(?)</sup>
+      <div class="tooltip-box">Age when withdrawals begin</div>
+    </td>
+    <td><input type="number" name="withdrawal_age" value="67"></td>
+  </tr>
+  <tr>
+    <td><strong>Withdrawal Amount</strong> <sup onclick="showTip(this)">(?)</sup>
+      <div class="tooltip-box">Annual withdrawal amount</div>
+    </td>
+    <td><input type="number" name="withdrawal_amount" value="10000"></td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" name="allow_mec" checked> Allow MEC</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><strong>Optimize Goal</strong></td>
+    <td>
+      <select name="optimize_goal">
+        <option value="DB">Death Benefit</option>
+        <option value="CV">Cash Value</option>
+      </select>
+    </td>
+  </tr>
+</table>
+
+ 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IUL Comparison Results</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; margin-bottom: 40px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
+        h2 { color: #004080; }
+        .highlight { background-color: #d1ffd1; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>IUL Simulation vs Optimized Plan</h1>
+
+    <h2>Original "As-Is" Plan</h2>
+    <p><strong>Annual Premium:</strong> {{ as_is_premium }}</p>
+    <p><strong>Death Benefit:</strong> {{ as_is_db }}</p>
+    <table>
+        <tr>
+            {% for key in as_is[0].keys() %}
+                <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in as_is %}
+        <tr>
+            {% for val in row.values() %}
+                <td>{{ val }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if optimized %}
+    <h2 class="highlight">Optimized Plan (All IRS Guidelines Met)</h2>
+    <p><strong>Recommended Annual Premium:</strong> {{ optimized["Annual Premium"] }}</p>
+    <p><strong>Recommended Death Benefit:</strong> {{ optimized["Death Benefit"] }}</p>
+    <table>
+        <tr>
+            {% for key in optimized['Simulation'][0].keys() %}
+                <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in optimized['Simulation'] %}
+        <tr>
+            {% for val in row.values() %}
+                <td>{{ val }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h2 class="error">The original plan passed all checks. No optimization was necessary.</h2>
+    {% endif %}
+
+    <br><a href="/">Try Another Plan</a>
+</body>
+</html>
